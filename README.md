@@ -1,4 +1,1 @@
-PHP_SYMFONY_TOOLS
-=================
-
-PHP_SYMFONY_TOOLS
+>> Aide mémoire des outils trouvés sur le web
