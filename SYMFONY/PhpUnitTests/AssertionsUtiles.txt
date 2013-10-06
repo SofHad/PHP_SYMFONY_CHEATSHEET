@@ -1,0 +1,23 @@
+// Vérifie qu'il y a au moins une balise h2 dans la classe "subtitle"
+$this->assertGreaterThan(0, $crawler->filter('h2.subtitle')->count());
+
+// Vérifie qu'il y a exactement 4 balises h2 sur la page
+$this->assertCount(4, $crawler->filter('h2'));
+
+// Vérifie que l'entête "Content-Type" vaut "application/json"
+$this->assertTrue($client->getResponse()->headers->contains('Content-Type', 'application/json'));
+
+// Vérifie que le contenu retourné correspond à la regex
+$this->assertRegExp('/foo/', $client->getResponse()->getContent());
+
+// Vérifie que le status de la réponse est 2xx
+$this->assertTrue($client->getResponse()->isSuccessful());
+// Vérifie que le status de la réponse est 404
+$this->assertTrue($client->getResponse()->isNotFound());
+// Vérifie un status spécifique
+$this->assertEquals(200, $client->getResponse()->getStatus());
+
+// Vérifie que la réponse est redirigée vers /demo/contact
+$this->assertTrue($client->getResponse()->isRedirect('/demo/contact'));
+// ou vérifie simplement que la réponse est redirigée vers une URL quelconque
+$this->assertTrue($client->getResponse()->isRedirect());
